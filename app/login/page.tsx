@@ -81,12 +81,19 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="text-center text-xs text-[#888888] mt-6">
-          Nog geen account?{' '}
-          <Link href="/registreren" className="text-[#111111] hover:underline">
-            Registreren
-          </Link>
-        </p>
+        <div className="mt-6 space-y-2 text-center">
+          <p className="text-xs text-[#888888]">
+            <Link href="/wachtwoord-vergeten" className="text-[#111111] hover:underline">
+              Wachtwoord vergeten?
+            </Link>
+          </p>
+          <p className="text-xs text-[#888888]">
+            Nog geen account?{' '}
+            <Link href="/registreren" className="text-[#111111] hover:underline">
+              Registreren
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   )
