@@ -3,17 +3,22 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Logo from './Logo'
-import { createClient } from '@/lib/supabase'
 import { useEffect, useState } from 'react'
 
 export default function Navbar() {
   const pathname = usePathname()
   const [isMedewerker, setIsMedewerker] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const supabase = createClient()
 
   useEffect(() => {
     async function checkUser() {
+      const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+      const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      if (!url || !key) return
+
+      const { createClient } = await import('@/lib/supabase')
+      const supabase = createClient()
+
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) return
       setIsLoggedIn(true)
