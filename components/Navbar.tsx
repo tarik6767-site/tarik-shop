@@ -57,7 +57,8 @@ export default function Navbar() {
         <div className="flex items-center gap-6">
           {navLink('/', 'Producten')}
           {isLoggedIn && navLink('/winkelmand', 'Winkelmand')}
-          {isMedewerker && navLink('/medewerker/producten', 'Beheer')}
+          {isMedewerker && navLink('/medewerker/producten', 'Producten beheren')}
+          {isMedewerker && navLink('/medewerker/bestellingen', 'Bestellingen')}
           {isLoggedIn
             ? navLink('/account', 'Account')
             : navLink('/login', 'Inloggen')}
